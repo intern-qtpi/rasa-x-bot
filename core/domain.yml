@@ -1,0 +1,86 @@
+version: '2.0'
+config:
+  store_entities_as_slots: true
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- greet:
+    use_entities: true
+- goodbye:
+    use_entities: true
+- affirm:
+    use_entities: true
+- deny:
+    use_entities: true
+- bot_challenge:
+    use_entities: true
+- principal:
+    use_entities: true
+- teacher:
+    use_entities: true
+- maths:
+    use_entities: true
+- history:
+    use_entities: true
+- robotics:
+    use_entities: true
+- other:
+    use_entities: true
+entities: []
+slots: {}
+responses:
+  utter_greet:
+  - buttons:
+    - payload: /principal
+      title: Principal
+    - payload: /teacher
+      title: Teacher
+    - payload: /deny
+      title: Not interested in your game!
+    text: Hello, I’m Agent X and my speciality is to identify teachers' names. Please can you specify your profession?
+  utter_goodbye:
+  - text: It was nice talking to you. Enjoy the rest of your day. Bye-bye.
+  utter_deny:
+  - text: Ok, I will try to get better. 😇
+  utter_affirm:
+  - text: Thank you. 😊
+  utter_principal:
+  - text: Your name is Ms Clara, you are an outstanding visionary!
+  utter_teacher:
+  - buttons:
+    - payload: /maths
+      title: Mathematics
+    - payload: /history
+      title: History
+    - payload: /robotics
+      title: Robotics
+    - payload: /other
+      title: Other
+    text: 'Choose your specialization:'
+  utter_maths:
+  - text: Your name is Mr Rohan, you make every problem look easy!
+  - text: Your name is Mr John, you make every problem look easy!
+  - text: Your name is Ms Alice, you make every problem look easy!
+  utter_history:
+  - text: Your name is Ms Helen, you are an inspiration to many!
+  - text: Your name is Mr James, you are an inspiration to many!
+  - text: Your name is Ms Priya, you are an inspiration to many!
+  utter_ask_performance:
+  - buttons:
+    - payload: /affirm
+      title: Yes, you are!
+    - payload: /deny
+      title: No, you aren't!
+    text: Don’t you think I’m a genius?
+  utter_robotics:
+  - text: Your name is Ms Jane, you are a wonderful teacher.
+  - text: Your name is Ms Bella, you are a wonderful teacher.
+  - text: Your name is Ms Jenefa, you are a wonderful teacher.
+  utter_other:
+  - text: You are a special part of our organization. I haven’t learned your name yet. The next time we meet I will know your name.
+  utter_iamabot:
+  - text: Hi, I am Agent X.
+actions: []
+forms: {}
+e2e_actions: []
